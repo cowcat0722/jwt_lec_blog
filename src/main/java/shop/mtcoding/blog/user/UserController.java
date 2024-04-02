@@ -34,8 +34,8 @@ public class UserController {
 
     @PostMapping("/join")
     public ResponseEntity<?> join(@RequestBody UserRequest.JoinDTO reqDTO) {
-        User user = userService.회원가입(reqDTO);
-        return ResponseEntity.ok(new ApiUtil(user));
+        UserResponse.DTO respDTO = userService.회원가입(reqDTO);
+        return ResponseEntity.ok(new ApiUtil(respDTO));
     }
 
     @PostMapping("/login")
